@@ -14,12 +14,13 @@ class KaryawanInfolist
             ->components([
                 TextEntry::make('user_id')
                     ->numeric(),
-                TextEntry::make('nip'),
                 TextEntry::make('nama'),
                 TextEntry::make('jabatan_id')
                     ->numeric(),
+                TextEntry::make('jabatan'),
                 TextEntry::make('shift_id')
                     ->numeric(),
+                TextEntry::make('shift'),
                 TextEntry::make('tanggal_masuk')
                     ->date(),
                 ImageEntry::make('face_image_url'),

@@ -16,12 +16,6 @@ class ShiftInfolist
                     ->time(),
                 TextEntry::make('jam_keluar')
                     ->time(),
-                TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
             ]);
     }
 }

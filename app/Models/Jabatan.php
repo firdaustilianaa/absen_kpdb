@@ -10,4 +10,9 @@ class Jabatan extends Model
         'nama_jabatan',
         'deskripsi',
     ];
+
+    public function karyawans()
+    {
+        return $this->hasMany(Karyawan::class, 'jabatan_id');
+    }
 }

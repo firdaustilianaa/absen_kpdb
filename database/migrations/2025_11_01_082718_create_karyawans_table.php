@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('nip');
             $table->string('nama');
-            $table->foreignId('jabatan_id')->constrained('jabatans')->onDelete('cascade');
-            $table->foreignId('shift_id')->constrained('shifts')->onDelete('cascade');
+            $table->foreignId('jabatan_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('shift_id')->nullable()->constrained()->nullOnDelete();
             $table->date('tanggal_masuk');
             $table->string('face_image_url');
             $table->string('status');

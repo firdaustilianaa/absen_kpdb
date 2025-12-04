@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Karyawans\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -16,17 +17,12 @@ class KaryawansTable
     {
         return $table
             ->columns([
-                TextColumn::make('user_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('nip')
-                    ->searchable(),
                 TextColumn::make('nama')
                     ->searchable(),
-                TextColumn::make('jabatan_id')
+                TextColumn::make('jabatan.nama_jabatan')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('shift_id')
+                TextColumn::make('shift.nama_shift')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('tanggal_masuk')
@@ -34,15 +30,7 @@ class KaryawansTable
                     ->sortable(),
                 ImageColumn::make('face_image_url'),
                 TextColumn::make('status')
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                ->searchable(),
             ])
             ->filters([
                 //
@@ -50,6 +38,7 @@ class KaryawansTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

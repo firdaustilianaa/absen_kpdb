@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandName(name:'PT. Krakatau Perbengkelan dan Perawatan')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
